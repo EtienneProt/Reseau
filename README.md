@@ -35,3 +35,6 @@ while 1:
 	modifiedMessage = message.upper()
 	serverSocket.sendto(modifiedMessage, clientAddress)
 ```
+
+En plus : 
+- si on veut discuter avec une autre machine il faut remplacer le nom de la machine (ici localhost) par une adresse IP.
