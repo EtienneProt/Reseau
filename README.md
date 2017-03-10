@@ -79,4 +79,5 @@ while 1:
 - en UDP :
 
 Pour le client : ```nc -u localhost 12000```
+
 Pour le serveur: ```nc -u -l -p 12000```
