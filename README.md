@@ -39,3 +39,35 @@ while 1:
 
 En plus : 
 - si on veut discuter avec une autre machine il faut remplacer le nom de la machine (ici localhost) par une adresse IP.
+
+## 2) Programmation TCP :
+
+###Code pour le client :
+```python
+from socket import *
+serverName = "localhost"
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((serverName,serverPort))
+sentence = raw_input('Input lowercase sentence:')
+clientSocket.send(sentence)
+modifiedSentence = clientSocket.recv(1024)
+print 'From Server:', modifiedSentence
+clientSocket.close()
+```
+
+###Code pour le serveur :
+```python
+from socket import *
+serverPort = 12000
+serverSocket = socket(AF_INET,SOCK_STREAM)
+serverSocket.bind(('',serverPort))
+serverSocket.listen(1)
+print 'The server is ready to receive'
+while 1:
+	connectionSocket, addr = serverSocket.accept()
+	sentence = connectionSocket.recv(1024)
+	capitalizedSentence = sentence.upper()
+	connectionSocket.send(capitalizedSentence)
+	connectionSocket.close()
+```
