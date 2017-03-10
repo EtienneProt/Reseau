@@ -84,6 +84,6 @@ Pour le serveur: ```netcat -u -l -p 12000```
 
 - en TDP :
 
-Pour le client : ```netcat -u localhost 12000```
+Pour le client : ```netcat -t localhost 12000```
 
-Pour le serveur: ```netcat -u -l -p 12000```
+Pour le serveur: ```netcat -t -l -p 12000```
