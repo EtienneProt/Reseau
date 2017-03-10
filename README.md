@@ -8,6 +8,8 @@ Etienne PROT
 Pour plus de renseignement :
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet 
 
+Pour lancer un fichier python (en .py), il faut dans une invite de commande taper : python nomDuFichier.py
+
 ## 2) Programmation UDP :
 
 ###Code pour le client :
@@ -40,7 +42,7 @@ while 1:
 En plus : 
 - si on veut discuter avec une autre machine il faut remplacer le nom de la machine (ici localhost) par une adresse IP.
 
-## 2) Programmation TCP :
+## 3) Programmation TCP :
 
 ###Code pour le client :
 ```python
