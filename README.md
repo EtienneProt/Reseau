@@ -87,3 +87,57 @@ Pour le serveur: ```netcat -u -l -p 12000```
 Pour le client : ```netcat -t localhost 12000```
 
 Pour le serveur: ```netcat -t -l -p 12000```
+
+## 5) Le "filtrage" :
+
+###Code pour le serveur :
+```python
+from socket import *
+serverPort = 13000
+serverSocket = socket(AF_INET,SOCK_STREAM)
+serverSocket.bind(('',serverPort))
+serverSocket.listen(1)
+print 'The server is ready to receive'
+while 1:
+	connectionSocket, addr = serverSocket.accept()
+	sentence = connectionSocket.recv(1024)
+	connectionSocket.send(sentence)
+	print sentence
+	connectionSocket.close()
+```
+###Code pour le filtre :
+```python 
+from socket import *
+serverPortIn = 12000
+serverPortOut = 13000
+serverName = "localhost"
+
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((serverName,serverPortOut))
+
+serverSocket = socket(AF_INET,SOCK_STREAM)
+serverSocket.bind(('',serverPortIn))
+serverSocket.listen(1)
+
+while 1:
+	connectionSocket, addr = serverSocket.accept()
+	sentence = connectionSocket.recv(1024)
+	modifiedSentence = sentence.upper()
+	clientSocket.send(modifiedSentence)
+	connectionSocket.close()
+
+clientSocket.close()
+```
+###Code pour le client :
+```python
+from socket import *
+serverName = "localhost"
+serverPort = 12000
+clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.connect((serverName,serverPort))
+sentence = raw_input('Input lowercase sentence:')
+clientSocket.send(sentence)
+modifiedSentence = clientSocket.recv(1024)
+print 'From Server:', modifiedSentence
+clientSocket.close()
+```
