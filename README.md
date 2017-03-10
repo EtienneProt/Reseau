@@ -71,5 +71,11 @@ while 1:
 	sentence = connectionSocket.recv(1024)
 	capitalizedSentence = sentence.upper()
 	connectionSocket.send(capitalizedSentence)
+	print capitalizedSentence
 	connectionSocket.close()
 ```
+### 4) NetCat : 
+
+- en UDP :
+Pour le client : ```nc -u localhost 12000```
+Pour le serveur: ```nc -u -l -p 12000```
