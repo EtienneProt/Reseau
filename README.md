@@ -82,7 +82,7 @@ Pour le client : ```netcat -u localhost 12000```
 
 Pour le serveur: ```netcat -u -l -p 12000```
 
-- en TDP :
+- en TCP :
 
 Pour le client : ```netcat -t localhost 12000```
 
