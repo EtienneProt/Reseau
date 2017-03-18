@@ -128,7 +128,7 @@ while 1:
 
 clientSocket.close()
 ```
-###Code pour le client :
+### Code pour le client :
 ```python
 from socket import *
 serverName = "localhost"
