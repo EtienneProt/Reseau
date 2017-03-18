@@ -12,7 +12,7 @@ Pour lancer un fichier python (en .py), il faut dans une invite de commande tape
 
 ## 2) Programmation UDP :
 
-###Code pour le client :
+### Code pour le client :
 ```python
 from socket import *
 serverName = "localhost"
@@ -25,7 +25,7 @@ print modifiedMessage
 clientSocket.close()
 ```
 
-###Code pour le serveur :
+### Code pour le serveur :
 ```python
 from socket import *
 serverPort = 12000
@@ -44,7 +44,7 @@ En plus :
 
 ## 3) Programmation TCP :
 
-###Code pour le client :
+### Code pour le client :
 ```python
 from socket import *
 serverName = "localhost"
@@ -58,7 +58,7 @@ print 'From Server:', modifiedSentence
 clientSocket.close()
 ```
 
-###Code pour le serveur :
+### Code pour le serveur :
 ```python
 from socket import *
 serverPort = 12000
@@ -90,7 +90,7 @@ Pour le serveur: ```netcat -t -l -p 12000```
 
 ## 5) Le "filtrage" :
 
-###Code pour le serveur :
+### Code pour le serveur :
 ```python
 from socket import *
 serverPort = 13000
@@ -105,7 +105,7 @@ while 1:
 	print sentence
 	connectionSocket.close()
 ```
-###Code pour le filtre :
+### Code pour le filtre :
 ```python 
 from socket import *
 serverPortIn = 12000
