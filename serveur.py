@@ -15,11 +15,12 @@ socketOut.listen(1)
 while 1:
 	connectionSocketIn, addr = socketIn.accept()
 	sentence = connectionSocketIn.recv(2048)
-	modifiedSentenceA = sentence.upper()
-	connectionSocketIn.send(modifiedSentenceA)
+	modifiedSentence = sentence.upper()
+	connectionSocketIn.send(modifiedSentence)
 	
 	connectionSocketOut, addr = socketOut.accept()
-	connectionSocketOut.send(modifiedSentenceA)
+	msg = modifiedSentence+"\n"
+	connectionSocketOut.send(msg)
 
 	connectionSocketIn.close()
 	connectionSocketOut.close()
